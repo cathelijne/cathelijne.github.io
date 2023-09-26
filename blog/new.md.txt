@@ -1,0 +1,15 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+header: /some/image/to/replace/the/default/seascape.webp
+subtitle: Something smart. Or sassy.
+introduction: An introduction. Use it to describe some background. Or as a teaser if you include this in other pages. Introductions usually describe what you can expect when you click on the link for the full article.
+categories:
+- New
+series:
+- None
+tags:
+- New
+- Unwritten
+- Max4
+---

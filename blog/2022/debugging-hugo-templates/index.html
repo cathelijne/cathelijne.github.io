@@ -1,0 +1,197 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preconnect href=https://fonts.googleapis.com crossorigin><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"><link rel=stylesheet type=text/css href=/css/style.min.d7963e9ac464f53a44d64147c8d59104542dd77f291506a1e62052565c344757.css><title>Debugging Hugo Templates [cathelijne.github.io]</title><meta name=description content="[cathelijne.github.io] - Debugging Hugo Templates
+  A short article about debugging Hugo templates. It's not that straightforward."><meta name=keywords content="hugo,templates,themes,debugging"><style type=text/css media=screen>.hero,header{background-image:linear-gradient(transparent,rgba(0,0,0,.5)),url(/media/cloud1.jpg);background-image:linear-gradient(transparent,rgba(0,0,0,.5)),image-set( url(/media/cloud1_hu8e75b88845596171585156eb3f7ec41d_5310375_800x0_resize_q80_h2_lanczos.webp) 1x,url(/media/cloud1_hu8e75b88845596171585156eb3f7ec41d_5310375_1600x0_resize_q80_h2_lanczos.webp) 2x );background-image:linear-gradient(transparent,rgba(0,0,0,.5)),-webkit-image-set( url(/media/cloud1_hu8e75b88845596171585156eb3f7ec41d_5310375_800x0_resize_q80_h2_lanczos.webp) 1x,url(/media/cloud1_hu8e75b88845596171585156eb3f7ec41d_5310375_1600x0_resize_q80_h2_lanczos.webp) 2x )}</style></head><body><header class="hero noprint"></header><div class=columns><div class=column><nav class=noprint><ul><li class=sticky><a href=/ title=home>home</a></li><li class=sticky><a href=/about title=about>about</a></li><li class=sticky><a href=/cv title=cv>cv</a></li></ul></nav><div class="debug block"><details class=card><summary>Debug Info</summary>
+<details class=card><summary>All in one</summary><pre><code class=language-json data-lang=json>{
+  ".Aliases": null,
+  ".Date": "2022-05-15T15:06:17+02:00",
+  ".Description": "",
+  ".Draft": false,
+  ".Keywords": null,
+  ".Kind": "page",
+  ".Layout": "",
+  ".Name": "Debugging Hugo Templates",
+  ".OutputFormats": [
+    {
+      "Rel": "canonical",
+      "Format": {
+        "mediaType": "text/html",
+        "name": "html",
+        "path": "",
+        "baseName": "index",
+        "rel": "canonical",
+        "protocol": "",
+        "isPlainText": false,
+        "isHTML": true,
+        "noUgly": false,
+        "notAlternative": false,
+        "permalinkable": true,
+        "weight": 10
+      }
+    }
+  ],
+  ".Params": {
+    "categories": [
+      "Building Websites"
+    ],
+    "date": "2022-05-15T15:06:17+02:00",
+    "debug": true,
+    "draft": false,
+    "introduction": "A short article about debugging Hugo templates. It's not that straightforward.",
+    "iscjklanguage": false,
+    "lastmod": "2022-06-21T17:27:10+02:00",
+    "publishdate": "2022-05-15T15:06:17+02:00",
+    "tags": [
+      "hugo",
+      "templates",
+      "themes",
+      "debugging"
+    ],
+    "title": "Debugging Hugo Templates"
+  },
+  ".Permalink": "/blog/2022/debugging-hugo-templates/",
+  ".ReadingTime": 3,
+  ".RelPermalink": "/blog/2022/debugging-hugo-templates/",
+  ".ResourceType": "page",
+  ".Resources": null,
+  ".Section": "blog",
+  ".Site": {
+    ".Params": {
+      "css": true,
+      "header": "/media/cloud*",
+      "mainsections": [
+        "blog"
+      ]
+    }
+  },
+  ".Summary": "Accessing variables in Hugo templates Recently, I\u0026rsquo;ve finally had the opportunity to dive into Hugo. I created a simple boilerplate theme to get a better understanding of how everything works together, ported a friends\u0026rsquo; old Wordpress site and then I started working on this site (It\u0026rsquo;s still very much a work in progress as you can see). And as I graduated a bit from absolute newbie, I really had a need to see what variables are available at any point in my page.\nEasy-peasy, you\u0026rsquo;d think. A standard curly braces template tag. Or an included shortcode. But no. The docs suggest {{ printf \u0026quot;%#v\u0026quot; . }} but that was pretty useless. I found a post on Hugo\u0026rsquo;s discourse where Bjorn Erik Pedersen suggests {{ debug.Dump . }} or {{ . | jsonify (dict \u0026quot;indent\u0026quot; \u0026quot; \u0026quot;) }}, but I still couldn\u0026rsquo;t produce a simple list of all varables set in a context.",
+  ".Title": "Debugging Hugo Templates",
+  ".Type": "blog",
+  ".Weight": 0,
+  ".WordCount": 502
+}</code></pre></details><details class=card><summary>.Site</summary><pre><code class=language-json data-lang=json>{}</code></pre></details><details class=card><summary>.Site.Params</summary><pre><code class=language-json data-lang=json>{
+  ".Params": {
+    "css": true,
+    "header": "/media/cloud*",
+    "mainsections": [
+      "blog"
+    ]
+  }
+}</code></pre></details><details class=card><summary>.Params</summary><pre><code class=language-json data-lang=json>{
+  ".Params": {
+    "categories": [
+      "Building Websites"
+    ],
+    "date": "2022-05-15T15:06:17+02:00",
+    "debug": true,
+    "draft": false,
+    "introduction": "A short article about debugging Hugo templates. It's not that straightforward.",
+    "iscjklanguage": false,
+    "lastmod": "2022-06-21T17:27:10+02:00",
+    "publishdate": "2022-05-15T15:06:17+02:00",
+    "tags": [
+      "hugo",
+      "templates",
+      "themes",
+      "debugging"
+    ],
+    "title": "Debugging Hugo Templates"
+  }
+}</code></pre></details><details class=card><summary>.</summary><pre><code class=language-json data-lang=json>{
+  ".Aliases": null,
+  ".Date": "2022-05-15T15:06:17+02:00",
+  ".Description": "",
+  ".Draft": false,
+  ".Keywords": null,
+  ".Kind": "page",
+  ".Layout": "",
+  ".Name": "Debugging Hugo Templates",
+  ".OutputFormats": [
+    {
+      "Rel": "canonical",
+      "Format": {
+        "mediaType": "text/html",
+        "name": "html",
+        "path": "",
+        "baseName": "index",
+        "rel": "canonical",
+        "protocol": "",
+        "isPlainText": false,
+        "isHTML": true,
+        "noUgly": false,
+        "notAlternative": false,
+        "permalinkable": true,
+        "weight": 10
+      }
+    }
+  ],
+  ".Permalink": "/blog/2022/debugging-hugo-templates/",
+  ".ReadingTime": 3,
+  ".RelPermalink": "/blog/2022/debugging-hugo-templates/",
+  ".ResourceType": "page",
+  ".Resources": null,
+  ".Section": "blog",
+  ".Summary": "Accessing variables in Hugo templates Recently, I\u0026rsquo;ve finally had the opportunity to dive into Hugo. I created a simple boilerplate theme to get a better understanding of how everything works together, ported a friends\u0026rsquo; old Wordpress site and then I started working on this site (It\u0026rsquo;s still very much a work in progress as you can see). And as I graduated a bit from absolute newbie, I really had a need to see what variables are available at any point in my page.\nEasy-peasy, you\u0026rsquo;d think. A standard curly braces template tag. Or an included shortcode. But no. The docs suggest {{ printf \u0026quot;%#v\u0026quot; . }} but that was pretty useless. I found a post on Hugo\u0026rsquo;s discourse where Bjorn Erik Pedersen suggests {{ debug.Dump . }} or {{ . | jsonify (dict \u0026quot;indent\u0026quot; \u0026quot; \u0026quot;) }}, but I still couldn\u0026rsquo;t produce a simple list of all varables set in a context.",
+  ".Title": "Debugging Hugo Templates",
+  ".Type": "blog",
+  ".Weight": 0,
+  ".WordCount": 502
+}</code></pre></details><details class=card><summary>debug.Dump</summary><pre><code class=language-json data-lang=json>&amp;hugolib.pageState{}</code></pre></details><details class=card><summary>printf "%#v"</summary><pre><code class=language-json data-lang=json>&amp;hugolib.pageState{id:6, pageOutputs:[]*hugolib.pageOutput{(*hugolib.pageOutput)(0xc000c46f20), (*hugolib.pageOutput)(0xc000c47340)}, pageOutputTemplateVariationsState:(*atomic.Uint32)(0xc000b22ad0), pageOutput:(*hugolib.pageOutput)(0xc000c46f20), pageCommon:(*hugolib.pageCommon)(0xc000bfac00)}</code></pre></details></details></div><div class=content><div><h1>Debugging Hugo Templates</h1></div><div class="columns mx-4"><div class=row><div class="col-1 noprint"></div><div class=col><div class=introduction><div><p><em>A short article about debugging Hugo templates. It&rsquo;s not that straightforward.</em></p></div></div><h2 id=accessing-variables-in-hugo-templates>Accessing variables in Hugo templates</h2><p>Recently, I&rsquo;ve finally had the opportunity to dive into <a href=https://gohugo.io>Hugo</a>. I created a <a href=https://github.com/cathelijne/hugo-theme-huguette>simple boilerplate theme</a> to get a better understanding of how everything works together, ported a friends&rsquo; old Wordpress site and then I started working on this site (It&rsquo;s still very much a work in progress as you can see). And as I graduated a bit from absolute newbie, I really had a need to see what <a href=https://gohugo.io/variables/>variables</a> are available at any point in my page.</p><p>Easy-peasy, you&rsquo;d think. A standard curly braces template tag. Or an included <a href=https://gohugo.io/templates/shortcode-templates/>shortcode</a>. But no. The docs suggest <code>{{ printf "%#v" . }}</code> but that was pretty useless. I found a <a href=https://discourse.gohugo.io/t/how-to-inspect-variables-in-the-current-scope-in-hugo/28766>post</a> on Hugo&rsquo;s discourse where <a href=https://github.com/bep>Bjorn Erik Pedersen</a> suggests <code>{{ debug.Dump . }}</code> or <code>{{ . | jsonify (dict "indent" " ") }}</code>, but I still couldn&rsquo;t produce a simple list of all varables set in a context.</p><p>So I went and made my own. It doesn&rsquo;t have all variables (I could add those if I wanted) and I had to jump through some hoops here and there because the datatypes are not the same for <code>.Site</code> or <code>.Params</code> and what have you. So the code is really ugly. I also couldn&rsquo;t find a clever way to merge everything in one big map in one go. So there&rsquo;s a whole chain of merges But it works, and I have what I need.</p><h3 id=partial-code>Partial Code</h3><pre tabindex=0><code>{{ if or ($.Params.debug) ($.Site.Params.debug) }}
+  {{ $debugInfo := dict }}
+  {{ $debugSite := (.Site |jsonify|unmarshal) }}
+  {{ $debugSiteParams := (dict &#34;.Params&#34; .Site.Params) }}
+  {{ $debugSitePlusSiteParams := (dict &#34;.Site&#34; (merge $debugSite $debugSiteParams)) }}
+  {{ $debugParams := (dict &#34;.Params&#34; .Params) }}
+  {{ $debugPage := (dict &#34;.Page&#34; .Page) }}
+  {{ $debugDot := dict
+    &#34;.Aliases&#34; .Aliases
+    &#34;.Date&#34; .Date
+    &#34;.Description&#34; .Description 
+    &#34;.Draft&#34; .Draft
+    &#34;.Keywords&#34; .Keywords
+    &#34;.Kind&#34; .Kind  
+    &#34;.Layout&#34; .Layout
+    &#34;.Name&#34; .Name  
+    &#34;.OutputFormats&#34; .OutputFormats
+    &#34;.Permalink&#34; .Permalink
+    &#34;.ReadingTime&#34; .ReadingTime
+    &#34;.RelPermalink&#34; .RelPermalink
+    &#34;.Resources&#34; .Resources
+    &#34;.ResourceType&#34; .ResourceType
+    &#34;.Summary&#34; .Summary  
+    &#34;.Section&#34; .Section 
+    &#34;.Title&#34; .Title  
+    &#34;.Type&#34; .Type
+    &#34;.Weight&#34; .Weight
+    &#34;.WordCount&#34; .WordCount
+  }}
+  {{ $debugInfo := merge $debugSitePlusSiteParams $debugParams $debugDot}}
+&lt;div class=&#34;debug&#34;&gt;
+  &lt;details class=&#34;card&#34;&gt;
+    &lt;summary&gt;Debug Info&lt;/summary&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;All in one&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ $debugInfo |jsonify (dict &#34;indent&#34; &#34;  &#34;)}}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;.Site&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ $debugSite |jsonify (dict &#34;indent&#34; &#34;  &#34;)}}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;.Site.Params&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ $debugSiteParams |jsonify (dict &#34;indent&#34; &#34;  &#34;)}}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;.Params&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ $debugParams |jsonify (dict &#34;indent&#34; &#34;  &#34;)}}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;.&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ $debugDot |jsonify (dict &#34;indent&#34; &#34;  &#34;)}}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+    &lt;details class=&#34;card&#34;&gt;
+      &lt;summary&gt;debug.Dump&lt;/summary&gt;
+      &lt;pre&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{{ debug.Dump . }}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+{{ end }}
+</code></pre><p>You can include this as a partial in your templates and set <code>debug: true</code> in your frontmatter (or in <code>config.toml</code> if you want to see these on every page on your site) to get a JSON object with lots (but not all) variables in it. If you want more variables, you can add them to <code>$debugDot</code>.</p><p>You can see the debugger in action on top of this page. I&rsquo;ve also added it as a <a href=https://gist.github.com/cathelijne/ac7f4c701200e7b3cc5220b11570a8ce>gist</a> to github.</p></div></div></div><footer><div>Copyright © 2023 Cathelijne Hornstra</div><nav class="home social"><ul><li class=sticky><a href=mailto:websitemessage@hornstra.com title=mail><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 128C0 92.65 28.65 64 64 64H448c35.3.0 64 28.65 64 64V384c0 35.3-28.7 64-64 64H64c-35.35.0-64-28.7-64-64V128zm48 0v22.1L220.5 291.7c20.6 17 50.4 17 71 0L464 150.1v-23C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1V128zm0 84.2V384C48 392.8 55.16 4e2 64 4e2H448C456.8 4e2 464 392.8 464 384V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9.0L48 212.2z"/></svg></a></li><li class=sticky><a href=https://github.com/cathelijne title=github><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8.0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8.0-21.5 4.9-32.3 14.6-51.8 45.3.0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8.0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9.0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2.0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8.0-73.5 38.7-73.5 82.6.0 87.8 80.4 101.3 150.4 101.3h48.2c70.3.0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8.0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg></a></li><li class=sticky><a href=https://mastodon.nl/@lijn rel=me title=mastodon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48.0.0.0-63.72 28.5-63.72 125.7.0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54.0 01-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg></a></li><li class=sticky><a href=https://linkedin.com/in/cathelijne title=linkedin><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></svg></a></li></ul></nav></footer></div></div><script data-goatcounter=https://pepperlink.goatcounter.com/count async src=//gc.zgo.at/count.js></script><noscript><img src="https://pepperlink.goatcounter.com/count?p=pixel&t=pixel"></noscript></body></html>

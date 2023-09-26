@@ -1,0 +1,14 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+subtitle: A recipe in 500 characters or less
+categories:
+- Minirecipes
+# tags:
+# - Pasta
+# - Simple
+# - Vegetarian
+outputs:
+#- html
+- json
+---
